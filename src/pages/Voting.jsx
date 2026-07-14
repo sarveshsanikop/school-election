@@ -339,7 +339,7 @@ export default function Voting() {
   // VIEW 3: LIVE SELECTION BALLOT
   // ============================================================================
   return (
-    <div className="max-w-6xl mx-auto space-y-6 mt-6 pb-20">
+    <div className="max-w-5xl mx-auto space-y-4 mt-6 pb-20">
       <VoterHeader />
 
       <div className="bg-slate-900 p-8 rounded-3xl shadow-md text-center text-white">
@@ -347,18 +347,18 @@ export default function Voting() {
         <h2 className="text-5xl font-black uppercase tracking-wide">Select: {currentPosition}</h2>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 pt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-3">
         {positionCandidates.map((cand) => (
           <div 
             key={cand.id}
             onClick={() => handleSelect(cand.id)}
-            className={`cursor-pointer bg-white p-6 rounded-3xl border-4 transition-all duration-200 text-center flex flex-col items-center ${
+            className={`cursor-pointer bg-white p-4 rounded-2xl border-3 transition-all duration-200 text-center flex flex-col items-center ${
               selections[currentPosition] === cand.id 
                 ? 'border-blue-600 bg-blue-50 scale-105 shadow-xl' 
                 : 'border-slate-100 hover:border-slate-300 hover:shadow-md'
             }`}
           >
-            <img src={cand.photo_url || 'https://via.placeholder.com/150'} alt={cand.name} className="w-48 h-48 rounded-full object-cover border-8 border-white shadow-md mb-6 bg-slate-100" />
+            <img src={cand.photo_url || 'https://via.placeholder.com/150'} alt={cand.name} className="w-38 h-38 rounded-full object-cover border-8 border-white shadow-md mb-6 bg-slate-100" />
             <h3 className="font-black text-slate-900 text-3xl mb-2">{cand.name}</h3>
             <p className="text-xl font-bold text-slate-500">Class {cand.class}</p>
             
