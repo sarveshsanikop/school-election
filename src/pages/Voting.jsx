@@ -161,7 +161,7 @@ export default function Voting() {
     return (
       <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-10">
         <div className="bg-slate-900 p-8 text-center text-white">
-          <h2 className="text-3xl font-black uppercase tracking-widest">Voting Booth Setup</h2>
+          <h2 className="text-2xl font-black uppercase tracking-widest">Voting Booth Setup</h2>
           <p className="text-slate-400 mt-2 text-lg font-bold">Admin: Load a classroom roster or staff member</p>
         </div>
 
@@ -276,10 +276,10 @@ export default function Voting() {
   // CURRENT VOTER HEADER (Shows in booth at all times)
   // ============================================================================
   const VoterHeader = () => (
-    <div className="flex justify-between items-center bg-blue-50 p-6 rounded-3xl mb-8 border border-blue-200 shadow-sm">
+    <div className="flex justify-between items-center bg-blue-50 p-4 rounded-3xl mb-8 border border-blue-200 shadow-sm">
       <div>
         <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-1">Current Voter Identity</p>
-        <p className="text-3xl font-black text-slate-900 uppercase">
+        <p className="text-2xl font-black text-slate-900 uppercase">
           {activeVoter.name} 
           <span className="text-xl text-slate-500 ml-4 font-bold">
             ({authType === 'student' ? `Roll No: ${activeVoter.roll_no} | Class ${activeVoter.class}-${activeVoter.division}` : `Staff ID: ${activeVoter.staff_no}`})
@@ -312,7 +312,7 @@ export default function Voting() {
           <h2 className="text-4xl font-black text-slate-900 mb-2 text-center uppercase tracking-wide">Review Your Ballot</h2>
           <p className="text-center text-xl text-slate-500 font-medium mb-10">Please confirm your selections before submitting.</p>
           
-          <div className="divide-y-2 divide-slate-100 bg-slate-50 rounded-2xl p-6 border-2 border-slate-100">
+          <div className="divide-y-2 divide-slate-100 bg-slate-50 rounded-2xl p-4 border-2 border-slate-100">
             {STEPS.slice(0, 4).map(pos => {
               const selectedCand = candidates.find(c => c.id === selections[pos]);
               return (
@@ -344,7 +344,7 @@ export default function Voting() {
 
       <div className="bg-slate-900 p-8 rounded-3xl shadow-md text-center text-white">
         <p className="text-lg font-bold text-blue-400 uppercase tracking-widest mb-2">Ballot Category {stepIndex + 1} of 4</p>
-        <h2 className="text-5xl font-black uppercase tracking-wide">Select: {currentPosition}</h2>
+        <h2 className="text-4xl font-black uppercase tracking-wide">Select: {currentPosition}</h2>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-3">
@@ -358,8 +358,8 @@ export default function Voting() {
                 : 'border-slate-100 hover:border-slate-300 hover:shadow-md'
             }`}
           >
-            <img src={cand.photo_url || 'https://via.placeholder.com/150'} alt={cand.name} className="w-38 h-38 rounded-full object-cover border-8 border-white shadow-md mb-6 bg-slate-100" />
-            <h3 className="font-black text-slate-900 text-3xl mb-2">{cand.name}</h3>
+            <img src={cand.photo_url || 'https://via.placeholder.com/150'} alt={cand.name} className="w-34 h-34 rounded-full object-cover border-6 border-white shadow-md mb-6 bg-slate-100" />
+            <h3 className="font-black text-slate-900 text-2xl mb-2">{cand.name}</h3>
             <p className="text-xl font-bold text-slate-500">Class {cand.class}</p>
             
             <div className={`mt-6 px-8 py-3 rounded-full text-lg font-bold uppercase tracking-wider w-full ${selections[currentPosition] === cand.id ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
@@ -370,10 +370,10 @@ export default function Voting() {
       </div>
 
       <div className="flex justify-between items-center pt-8 border-t-2 border-slate-200 mt-10">
-        <button disabled={stepIndex === 0} onClick={() => setStepIndex(stepIndex - 1)} className="px-10 py-5 rounded-2xl text-xl font-bold text-slate-700 bg-slate-200 hover:bg-slate-300 disabled:opacity-30 transition-colors uppercase">
+        <button disabled={stepIndex === 0} onClick={() => setStepIndex(stepIndex - 1)} className="px-8 py-5 rounded-2xl text-xl font-bold text-slate-700 bg-slate-200 hover:bg-slate-300 disabled:opacity-30 transition-colors uppercase">
           Previous
         </button>
-        <button onClick={() => setStepIndex(stepIndex + 1)} className="px-12 py-5 rounded-2xl text-xl font-black text-white bg-blue-600 hover:bg-blue-700 shadow-lg uppercase transition-colors">
+        <button onClick={() => setStepIndex(stepIndex + 1)} className="px-10 py-5 rounded-2xl text-xl font-black text-white bg-blue-600 hover:bg-blue-700 shadow-lg uppercase transition-colors">
           Next Category
         </button>
       </div>
