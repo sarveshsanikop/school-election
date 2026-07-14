@@ -136,7 +136,11 @@ export default function Voting() {
 
     // 3. Mark voter as completed
     await supabase.from('voters').update({ has_voted: true }).eq('id', activeVoter.id);
-
+if (authType === 'staff') {
+  setStaffList(prev =>
+    prev.filter(staff => staff.id !== activeVoter.id)
+  );
+}
     // 4. Show success and move to next student in line
     alert('Vote securely recorded! Handing over to the next voter.');
     moveToNextVoter();
